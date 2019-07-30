@@ -24,38 +24,49 @@
           </div>
         </div>
         </transition>
-        
         <transition  name="slide-fade">
-          <div class= "block2" v-show ="mma.position < scrollPosition">
-            <span class="title">Mixed Martial &nbsp;Arts</span>
-            <div class="line">
-              <img  src="../../public/img/mma/sergiu.jpg">
-              <p class="text"><br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
-                  diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir</p>
+        <div class= "block2" v-show ="lieux.position < scrollPosition">
+          <span class="title">Les lieux</span>
+          <div class="line">
+            <p  class="text">Vitry ou Paris 13 eme arrondissement, ce seront vos arènes d'entraînement. 
+            </p>
+            <div class="grid">
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
             </div>
+            <img  src="">
           </div>
-        </transition>
-        
-        <transition  name="slide-fade">
-           <div class= "block3" v-show ="thai.position < scrollPosition">
-            <span class="title">Boxe Thai</span>
-            <div class="line">
-              <p class="text">MMA<br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
-                  diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir</p>
-              <img  src="../../public/img/professors/franck.jpg">
-            </div>
-           </div>
-        </transition>
-
-        <transition  name="slide-fade">
-           <div class= "block4" v-show ="luta.position < scrollPosition">
-            <span class="title">Grappling/LutaLivre</span>
-            <div class="line">
-              <img  src="../../public/img/professors/nico_nb.jpg">
-              <p class="text">MMA<br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
-                  diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir</p>
-            </div>
-           </div>
+        </div>
         </transition>
 
     <div class="footer">
@@ -89,21 +100,10 @@ export default {
         position:350,
         show:false
         },
-
-      mma:{
-        position:900,
+      lieux:{
+        position:700,
         show:false
-        },
-
-      thai:{
-        position:1700,
-        show:false
-        },
-
-      luta:{
-      position:2400,
-      show:false
-      },
+        }
     }
   },
 
@@ -140,27 +140,10 @@ export default {
 
     .block2{
       margin-top: 5em;
-      display: inline-block;
-      background-image: url("../../public/img/wallpaper/mma2.png");
-      background-position: center;
-      background-repeat: no-repeat;
+      background-image: url("../../public/img/club/vitry1.jpg");
       background-size: 100%;
-    }
-
-    .block3{
-      margin-top: 5em;
-      background-image: url("../../public/img/wallpaper/thai_opacity.png");
       background-position: center;
     }
-
-    .block4{
-      margin-top: 5em;
-      background-image: url("../../public/img/wallpaper/grappling1.png");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 100%;
-    }
-
 
     .title{
       font-family: "Shogun";
@@ -195,6 +178,17 @@ export default {
       border-color: white;
       min-height: 0;
       max-width: 30%;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+
+      div{
+        background-color: blue;
+        border: solid;
+      }
     }
   }
 

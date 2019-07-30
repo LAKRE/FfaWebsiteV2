@@ -1,10 +1,10 @@
 <template>
   <div >
-        <transition  name="slide-fade">
-          <div class= "block2" v-show ="mma.position < scrollPosition">
+        <transition appear name="fade1">
+          <div class= "mma">
             <span class="title">Mixed Martial &nbsp;Arts</span>
             <div class="line">
-              <img  src="../../public/img/mma/sergiu.jpg">
+              <!--<img  src="../../public/img/mma/sergiu.jpg">-->
               <p class="text"><br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
                   diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir</p>
             </div>
@@ -12,21 +12,21 @@
         </transition>
         
         <transition  name="slide-fade">
-           <div class= "block3" v-show ="thai.position < scrollPosition">
+           <div class= "thai" v-show ="thai.position < scrollPosition">
             <span class="title">Boxe Thai</span>
             <div class="line">
               <p class="text">MMA<br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
                   diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir</p>
-              <img  src="../../public/img/professors/franck.jpg">
+              <!--<img  src="../../public/img/professors/franck.jpg">-->
             </div>
            </div>
         </transition>
 
         <transition  name="slide-fade">
-           <div class= "block4" v-show ="luta.position < scrollPosition">
+           <div class= "grappling" v-show ="luta.position < scrollPosition">
             <span class="title">Grappling/LutaLivre</span>
             <div class="line">
-              <img  src="../../public/img/professors/nico_nb.jpg">
+              <!--<img  src="../../public/img/professors/nico_nb.jpg">-->
               <p class="text">MMA<br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
                   diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir</p>
             </div>
@@ -59,7 +59,7 @@ export default {
       scrollPosition:0,
       mma:{
         position:0,
-        show:false
+        show:true
         },
 
       thai:{
@@ -94,27 +94,31 @@ export default {
     src: url("../../public/font/livin-hell_shoguns-clan/Shoguns Clan.ttf");
   }
 
-    .block2{
-      margin-top: 5em;
-      display: inline-block;
+    .mma{
+      margin-top: 2em;
+      padding-top: 2em;
+      padding-bottom: 2em;
       background-image: url("../../public/img/wallpaper/mma2.png");
       background-position: center;
-      background-repeat: no-repeat;
-      background-size: 100%;
+     //  background-size: 100%;
+      clip-path:polygon(0 20%, 100% 0, 100% 80%, 0 100%);
     }
 
-    .block3{
-      margin-top: 5em;
+    .thai{
+      margin-top: 2em;
+      padding-top: 2em;
+      padding-bottom: 2em;
       background-image: url("../../public/img/wallpaper/thai_opacity.png");
       background-position: center;
+      clip-path:polygon(0 20%, 100% 0, 100% 80%, 0 100%);
     }
 
-    .block4{
-      margin-top: 5em;
+    .grappling{
+      margin-top: 2em;
       background-image: url("../../public/img/wallpaper/grappling1.png");
       background-position: center;
-      background-repeat: no-repeat;
       background-size: 100%;
+      clip-path:polygon(0 20%, 100% 0, 100% 80%, 0 100%);
     }
 
 
@@ -124,6 +128,7 @@ export default {
       color:yellow;
       font-size: 4em;
       letter-spacing: 0.05em;
+      text-align: right;
        text-shadow: 1px 1px 1px black;
        text-rendering: optimizeLegibility;
        -webkit-font-smoothing: antialiased;
@@ -134,7 +139,7 @@ export default {
     padding-right: 5em;
     flex-wrap: nowrap;
     margin-top: 1em;
-    height: 30em;
+    height: 20em;
     width: 95%;
     background-position: center;
     background-size: 100%;
@@ -203,7 +208,7 @@ export default {
   opacity: 0;
   }
   .fade1-enter-active, .fade-leave-active {
-  transition: opacity 5s;
+  transition: opacity 3s;
   }
 
   .fade2-enter {
