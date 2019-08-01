@@ -11,29 +11,38 @@
       </div>
     </div>
       <transition  name="slide-fade">
-        <div class= "block1" v-show ="intro.position < scrollPosition">
-          <span class="title">Le Club</span>
-          <div class="line">
-            <p  class="text">Créé en 1997 par Mathieu Nicourt et un noyau de passionnés de sports de combat, 
+        <div class= "bloc club" v-show ="intro.position < scrollPosition">
+          <div class="title">Le Club</div>
+          <p class="text">Créé en 1997 par Mathieu Nicourt et un noyau de passionnés de sports de combat, 
               la Free Fight Academy compte aujourd'hui plus de 150 licenciés. Elle propose plusieurs activités à ses adhérents (Mixed Martial Arts,
               Pancrace, Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
                 diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir, hommes et 
                 femmes recherchant une méthode d'entretien physique ou de self-défense. 
-            </p>
-            <img  src="../../public/img/professors/mathieu.jpg">
-          </div>
+          </p>
         </div>
         </transition>
+
         <transition  name="slide-fade">
-        <div class= "block2" v-show ="lieux.position < scrollPosition">
-          <span class="title">Les lieux</span>
-          <div class="line">
-            <p  class="text">Vitry ou Paris 13 eme arrondissement, ce seront vos arènes d'entraînement. 
+        <div class = "bloc lieux" v-show ="lieux.position < scrollPosition">
+          <div class = "title">Les lieux</div>
+            <p class="text">Vitry ou Paris 13 eme arrondissement, ce seront vos arènes d'entraînement. 
             </p>
-            <div class="grid">
+              <!--<div class="grid">
+              <div>toto</div>
+              <div>2toto</div>
+              <div>3toto</div>
+              <div>4toto</div>
+              <div>1toto</div>
+              <div>2totototo</div>
+              <div>3toto</div>
+              <div>4toto</div>
+              <div>1toto</div>
+              <div>2toto</div>
+              <div>3toto</div>
+              <div>4toto</div>
               <div>1</div>
               <div>2</div>
-              <div>3</div>
+              <div>3toto</div>
               <div>4</div>
               <div>1</div>
               <div>2</div>
@@ -51,23 +60,34 @@
               <div>2</div>
               <div>3</div>
               <div>4</div>
-              <div>1</div>
-              <div>2</div>
-              <div>3</div>
-              <div>4</div>
-              <div>1</div>
-              <div>2</div>
-              <div>3</div>
-              <div>4</div>
-              <div>1</div>
-              <div>2</div>
-              <div>3</div>
-              <div>4</div>
-            </div>
-            <img  src="">
+            </div>-->
           </div>
-        </div>
         </transition>
+
+        <transition appear name="fade">
+          <div class = "bloc mma" v-show ="mma.position < scrollPosition">
+            <div class="title">Mixed Martial &nbsp;Arts</div>
+            <p class="text"><br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
+                  diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir</p>
+          </div>        
+        </transition>
+
+        <transition  name="slide-fade">
+          <div class = "bloc thai" v-show ="thai.position < scrollPosition">
+            <div class="title">>Boxe Thai</div>
+            <p class="text"><br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
+                  diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir</p>
+          </div>
+        </transition>
+
+        <transition  name="slide-fade" >
+           <div class = "bloc grappling" v-show ="grappling.position < scrollPosition">
+            <div class="title">Grappling / Luta-Livre</div>
+            <p class="text"><br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
+                  diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir</p>
+          </div>
+        </transition>
+        
 
     <div class="footer">
     </div>
@@ -94,15 +114,27 @@ export default {
 
   data:()=>{
     return{
-      show:false,
-      scrollPosition:0,
+      show: false,
+      scrollPosition: 0,
       intro:{
         position:350,
-        show:false
+        show: false
         },
       lieux:{
         position:700,
-        show:false
+        show: false
+        },
+      mma:{
+        position:700 + 350,
+        show: false
+        },
+      thai:{
+        position: 1400,
+        show: false
+        },
+      grappling:{
+        position: 1400 + 350,
+        show: false
         }
     }
   },
@@ -132,10 +164,7 @@ export default {
     }
 
     .block1{
-      margin-top: 5em;
       background-image: url("../../public/img/wallpaper/ffaTeamBackground_opacity.png");
-      background-size: 100%;
-      background-position: center;
     }
 
     .block2{
@@ -179,18 +208,17 @@ export default {
       min-height: 0;
       max-width: 30%;
     }
+  }
 
-    .grid{
+  .grid{
       display:grid;
       grid-template-columns: repeat(8, 1fr);
       grid-template-rows: repeat(4, 1fr);
 
       div{
-        background-color: blue;
         border: solid;
       }
     }
-  }
 
 
   .main{
@@ -236,6 +264,54 @@ export default {
      -webkit-font-smoothing: antialiased !important;
 
   }
+
+  .bloc{
+      padding-top: 4em;
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+      height: 24em;
+      background-position: center;
+      
+    }
+  
+  .club{
+    clip-path:polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    background-image: url("../../public/img/wallpaper/ffaTeamBackground_opacity.png");
+  }
+
+  .mma{
+    background-image: url("../../public/img/wallpaper/mma2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    clip-path:polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+  }
+
+  .thai{
+    background-image: url("../../public/img/wallpaper/thai_opacity.png");
+    background-position: center;
+    clip-path:polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+  }
+
+  .grappling{
+      // margin-top: 2em;
+      background-image: url("../../public/img/wallpaper/grappling1.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      clip-path:polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+    }
+  
+  .lieux{
+    padding-top: 5em;
+    background-image: url("../../public/img/club/vitry1.jpg");
+    background-position: center;
+    background-size: 100%;
+    clip-path:polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+
+  }
+
 
   .fade1-enter {
   opacity: 0;

@@ -1,7 +1,7 @@
 <template>
     <div id>
       <header>
-        <span><a href="/#/">Accueil</a></span><span><a href="/#/disciplines">Disciplines</a></span><span><a href="/lieuxHoraires">Horaires/lieux</a></span></span><span><a href="/inscription">Inscription</a></span>
+        <span class= "link">Accueil</span><span><DropdownVue  :options="arrayOfObjects"  :selected="object"></DropdownVue></span><span class= "link">Horaires/Lieux</span><span class= "link">Inscription</span>
       </header>
       <router-view></router-view>
     </div>
@@ -9,26 +9,42 @@
 
 <script>
 
+import DropdownVue from './components/Dropdown'
 export default {
   name: 'app',
+  components: {
+    DropdownVue
+  },
+  data:() =>{return {
+
+    arrayOfObjects:[{name:'Mma'}, {name: 'Boxe Thaï'}, {name:'Grappling'}],
+    object:{}
+    }
+  } 
 }
 </script>
 
 <style>
 body{
 color: white;
+padding-left: 5em;
+padding-right: 5em;
 background-color:black;
 background-image: linear-gradient(to right, black , rgb(15, 15, 15));
-height: 250em;
+height: 125em;
 }
 header{
     display: flex;
     height: 4.5em;
     width: 100%;
     justify-content: center;
-    align-items: center
-    
+    align-items: center;
   }
+
+.link{
+      color:grey;
+    }
+
 span{
     font-size: 1.3em;
     font-family: "Roboto";

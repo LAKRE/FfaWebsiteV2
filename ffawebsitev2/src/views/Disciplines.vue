@@ -1,36 +1,27 @@
 <template>
   <div >
         <transition appear name="fade1">
-          <div class= "mma">
-            <span class="title">Mixed Martial &nbsp;Arts</span>
-            <div class="line">
-              <!--<img  src="../../public/img/mma/sergiu.jpg">-->
-              <p class="text"><br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
+          <div class = "discipline mma">
+            <div class="title">Mixed Martial &nbsp;Arts</div>
+            <p class="text"><br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
                   diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir</p>
-            </div>
-          </div>
+          </div>        
         </transition>
         
         <transition  name="slide-fade">
-           <div class= "thai" v-show ="thai.position < scrollPosition">
-            <span class="title">Boxe Thai</span>
-            <div class="line">
-              <p class="text">MMA<br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
+          <div class = "discipline thai" v-show ="thai.position < scrollPosition">
+            <div class="title">>Boxe Thai</div>
+            <p class="text"><br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
                   diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir</p>
-              <!--<img  src="../../public/img/professors/franck.jpg">-->
-            </div>
-           </div>
+          </div>
         </transition>
 
         <transition  name="slide-fade">
-           <div class= "grappling" v-show ="luta.position < scrollPosition">
-            <span class="title">Grappling/LutaLivre</span>
-            <div class="line">
-              <!--<img  src="../../public/img/professors/nico_nb.jpg">-->
-              <p class="text">MMA<br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
+           <div class = "discipline grappling" v-show ="luta.position < scrollPosition">
+            <div class="title">Grappling / Luta-Livre</div>
+            <p class="text"><br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
                   diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir</p>
-            </div>
-           </div>
+          </div>
         </transition>
   </div>
 </template>
@@ -94,31 +85,44 @@ export default {
     src: url("../../public/font/livin-hell_shoguns-clan/Shoguns Clan.ttf");
   }
 
-    .mma{
-      margin-top: 2em;
-      padding-top: 2em;
-      padding-bottom: 2em;
-      background-image: url("../../public/img/wallpaper/mma2.png");
-      background-position: center;
-     //  background-size: 100%;
-      clip-path:polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+   .mma{
+    //   margin-top: 2em;
+    //   padding-top: 2em;
+    //   padding-bottom: 2em;
+       background-image: url("../../public/img/wallpaper/mma2.png");
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: 100%;
+       clip-path:polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    //   clip-path:polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+     }
+
+    .discipline{
+      padding-top: 7em;
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+      height: 22em;
+      //clip-path:polygon(0 0, 100% 0, 100% 80%, 0 100%);
     }
 
     .thai{
-      margin-top: 2em;
-      padding-top: 2em;
-      padding-bottom: 2em;
+      // margin-top: 2em;
+      // padding-top: 2em;
+      // padding-bottom: 2em;
       background-image: url("../../public/img/wallpaper/thai_opacity.png");
       background-position: center;
+      // background-position: center;
       clip-path:polygon(0 20%, 100% 0, 100% 80%, 0 100%);
     }
 
     .grappling{
-      margin-top: 2em;
+      // margin-top: 2em;
       background-image: url("../../public/img/wallpaper/grappling1.png");
       background-position: center;
+      background-repeat: no-repeat;
       background-size: 100%;
-      clip-path:polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+      clip-path:polygon(0 20%, 100% 0, 100% 100%, 0 100%);
     }
 
 
@@ -128,37 +132,20 @@ export default {
       color:yellow;
       font-size: 4em;
       letter-spacing: 0.05em;
-      text-align: right;
        text-shadow: 1px 1px 1px black;
        text-rendering: optimizeLegibility;
        -webkit-font-smoothing: antialiased;
     }
 
-  .line {
-    display:flex;
-    padding-right: 5em;
-    flex-wrap: nowrap;
-    margin-top: 1em;
-    height: 20em;
-    width: 95%;
-    background-position: center;
-    background-size: 100%;
-    background-repeat: no-repeat;
-
-    p{
-      flex-grow:2;
+    .intro{
+      // margin-top: 2em;
+      // padding-top: 2em;
+      // padding-bottom: 2em;
+      background-image: url("../../public/img/wallpaper/thai_opacity.png");
+      background-position: center;
+      // background-position: center;
+      clip-path:polygon(0 20%, 100% 0, 100% 80%, 0 100%);
     }
-
-    img{
-      position: relative;
-      border: 1px;
-      border-style: double;
-      border-color: white;
-      min-height: 0;
-      max-width: 30%;
-    }
-  }
-
 
   .main{
     width:100%;
