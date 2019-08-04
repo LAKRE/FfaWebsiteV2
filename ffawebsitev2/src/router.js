@@ -6,6 +6,7 @@ import Disciplines from './views/Disciplines.vue';
 import Mma from './views/Mma.vue';
 import BoxeThai from './views/BoxeThai.vue';
 import Grappling from './views/Grappling.vue';
+import Horaires from './views/Horaires.vue';
 
 
 Vue.use(Router);
@@ -49,7 +50,7 @@ export default new Router({
     {
       path: '/horaires',
       name: 'horaire',
-      component: Disciplines,
+      component: Horaires,
     },
     {
       path: '/inscription',
