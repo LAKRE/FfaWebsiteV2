@@ -1,26 +1,69 @@
 <template>
-    <div id>
-      <header>
-        <span class= "link">Accueil</span><span><DropdownVue  :options="arrayOfObjects"  :selected="object"></DropdownVue></span><span class= "link">Horaires/Lieux</span><span class= "link">Inscription</span>
+    <div>
+      <header class= "banner">
+        <span class = "link" @click = "redirect('accueil')">Accueil</span>
+        <span>
+        <DropdownVue  :options="arrayOfObjects"  :selected="dropdownTitle" v-on:updateOption="redirect"></DropdownVue>
+        </span>
+        <span class= "link" @click = "redirect('horaire')">Horaires/Lieux</span>
+        <span class= "link" @click = "redirect('inscription')">Inscription</span>
       </header>
       <router-view></router-view>
+      <footer class= "banner" v-show ="footer.position < scrollPosition" > 
+        <span class = "link" @click = "redirect('accueil')">Facebook</span>
+        <span>
+        </span>
+        <span class= "link" @click = "redirect('horaire')">Nous-Contacter</span>
+        <span class= "link" @click = "redirect('inscription')">Mentions Légales</span>
+      </footer>
     </div>
 </template>
 
 <script>
 
-import DropdownVue from './components/Dropdown'
+import DropdownVue from './components/Dropdown';
+import router from './router';
 export default {
   name: 'app',
   components: {
-    DropdownVue
+    DropdownVue,
+    router
   },
+  created(){
+     // window.onscroll=this.scrolled;
+     document.addEventListener('scroll',this.scrolled,true);
+   },
+   beforeDestroy(){
+     document.removeEventListener('scroll',this.scrolled,true);
+   },
   data:() =>{return {
 
-    arrayOfObjects:[{name:'Mma'}, {name: 'Boxe Thaï'}, {name:'Grappling'}],
-    object:{}
+    arrayOfObjects:[{name :'Mma',routerLink :'mma'},
+                    {name : 'Boxe Thaï', routerLink :'boxeThai'}, 
+                    {name : 'Grappling', routerLink :'grappling'}
+                  ],
+    dropdownTitle:{
+      name:'Disciplines'
+    },
+    scrollPosition:0,
+      footer:{
+        position:2560,
+        show:true
+        },
     }
-  } 
+  },
+
+  methods:{
+    redirect(page){
+      const routerLink = page.routerLink ? page.routerLink : page;
+      router.push({name : routerLink})
+    },
+    scrolled(){
+        console.log('evt',window.scrollY);
+        this.scrollPosition=window.scrollY;
+        console.log('show',this.scrollPosition);
+      }
+  }
 }
 </script>
 
@@ -31,26 +74,36 @@ padding-left: 5em;
 padding-right: 5em;
 background-color:black;
 background-image: linear-gradient(to right, black , rgb(15, 15, 15));
-height: 125em;
+height: 200em;
 }
-header{
+.banner{
     display: flex;
+    font-size: 1.3em;
     height: 4.5em;
-    width: 100%;
-    justify-content: center;
+    width: inherit;
+    justify-content: space-between;
     align-items: center;
-  }
+}
 
 .link{
-      color:grey;
+      font-family: "Roboto";
+      padding: 10px;
+      height: auto;
+      transition: background 1s ease-out;
+      cursor: pointer;
+      color: grey;
+}
+
+.link:hover{
+  background: #e1e1e1;
+}
+
+
+.link{
+      /*color:grey;*/
     }
 
-span{
-    font-size: 1.3em;
-    font-family: "Roboto";
-    margin-left: 10em;
-    color: yellow;
-}
+
   
 #app {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

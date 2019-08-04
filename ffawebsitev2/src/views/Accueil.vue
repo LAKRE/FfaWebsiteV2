@@ -64,7 +64,7 @@
           </div>
         </transition>
 
-        <transition appear name="fade">
+        <transition appear name="slide-fade">
           <div class = "bloc mma" v-show ="mma.position < scrollPosition">
             <div class="title">Mixed Martial &nbsp;Arts</div>
             <p class="text"><br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
@@ -117,23 +117,23 @@ export default {
       show: false,
       scrollPosition: 0,
       intro:{
-        position:350,
+        position:250,
         show: false
         },
       lieux:{
-        position:700,
+        position:660,
         show: false
         },
       mma:{
-        position:700 + 350,
+        position: 1120,
         show: false
         },
       thai:{
-        position: 1400,
+        position: 1560,
         show: false
         },
       grappling:{
-        position: 1400 + 350,
+        position: 2050,
         show: false
         }
     }
@@ -232,8 +232,10 @@ export default {
     letter-spacing: 0.05em;
     
     .ffa-home{
-       position:relative;
-       top:0.6em;
+      display:flex;
+      flex-direction: column;
+       position: relative;
+       top: 0.6em;
        font-size: 9em;
        text-shadow: 1px 1px 1px  rgb(5, 5, 5);
        text-rendering: optimizeLegibility !important;
@@ -276,7 +278,8 @@ export default {
     }
   
   .club{
-    clip-path:polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    margin-top: 2em;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     background-image: url("../../public/img/wallpaper/ffaTeamBackground_opacity.png");
   }
 

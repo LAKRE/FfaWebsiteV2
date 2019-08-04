@@ -3,6 +3,10 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Accueil from './views/Accueil.vue';
 import Disciplines from './views/Disciplines.vue';
+import Mma from './views/Mma.vue';
+import BoxeThai from './views/BoxeThai.vue';
+import Grappling from './views/Grappling.vue';
+
 
 Vue.use(Router);
 
@@ -25,6 +29,31 @@ export default new Router({
     {
       path: '/disciplines',
       name: 'disciplines',
+      component: Disciplines,
+    },
+    {
+      path: '/mma',
+      name: 'mma',
+      component: Mma,
+    },
+    {
+      path: '/boxeThai',
+      name: 'boxeThai',
+      component: BoxeThai,
+    },
+    {
+      path: '/grappling',
+      name: 'grappling',
+      component: Grappling,
+    },
+    {
+      path: '/horaires',
+      name: 'horaire',
+      component: Disciplines,
+    },
+    {
+      path: '/inscription',
+      name: 'inscription',
       component: Disciplines,
     }
   ],

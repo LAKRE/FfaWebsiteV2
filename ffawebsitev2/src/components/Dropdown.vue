@@ -28,7 +28,7 @@
                   name: '',
                 },
                 showMenu: false,
-                placeholderText: 'Disciplines',
+                placeholderText: '',
             }
         },
         props: {
@@ -139,6 +139,7 @@
   width: 100%;
   position: relative;
   margin: 0;
+  transition: visibility 1s, opacity 0.5s linear;
 }
 
 .caret {
