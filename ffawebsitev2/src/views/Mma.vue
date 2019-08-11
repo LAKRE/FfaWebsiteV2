@@ -3,8 +3,7 @@
         <transition appear name="fade1">
           <div class = "discipline mma">
             <div class="title">Mixed Martial &nbsp;Arts</div>
-            <p class="text"><br/>Boxe Thai, Grappling, Lutte Libre & Jiu-Jitsu Brésilien). La Free Fight Academy est gérée par une équipe de professeurs
-                  diplômés d'Etat. Elle entraïne une équipe de combattants professionnels mais s'adresse aussi aux pratiquants loisir</p>
+            <p class="text">En cours de Construction !!</p>
           </div>        
         </transition>
   </div>

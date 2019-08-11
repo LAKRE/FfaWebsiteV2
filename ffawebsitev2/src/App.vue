@@ -64,8 +64,9 @@ export default {
 
   methods:{
     redirect(page){
+      console.log(page)
       if(page.routerLink!==undefined){
-        debugger;
+         router.push({name : page.routerLink});
       }
       if(page.externalLink!==undefined){
         window.location.href = page.externalLink;
