@@ -3,89 +3,17 @@
     <transition appear name="fade1">
         <div class = "discipline lieux">
         <div class = "title">Les lieux</div>
-            <p class="text">En cours de construction !!</p>
-            <!--<div class="grid">
-                <div class="header">
-                    <ul>
-                        <li>Horaires Vitry-sur-Seine</li>
-                        <li>Lundi</li>
-                        <li>Mardi</li>
-                        <li>Mercredi</li>
-                        <li>Jeudi</li>
-                        <li>Vendredi</li>
-                        <li>Samedi</li>
-                        <li>Dimanche</li>
-                    </ul>
-                </div>
-                <div class="side">
-                    <ul>
-                        <li>MMA Pancrace Tous niveaux</li>
-                        <li>Boxe Thaï</li>
-                        <li>Grappling / Luta Livre</li>
-                        <li>Boxe Thaï-Pancrace Enfants de - de 14 ans</li>
-                        <li>Cross-training "Sportiate"</li>
-                        <li>Musculation Cardio-training</li>
-                    </ul>
-                </div>
-                <div class="values">
-                    <ul>
-                        <li>à  Paris</li>
-                        <li>20h30 22h00</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li>18h30 22h00</li>
-                    </ul>
-                    <ul>
-                        <li>19h00 20h30</li>
-                        <li></li>
-                        <li>20h30 22h00</li>
-                        <li></li>
-                        <li>20h30 22h00</li>
-                        <li>18h30 22h00</li>
-                    </ul>
-                    <ul>
-                        <li>à  Paris</li>
-                        <li>20h30 22h00</li>
-                        <li></li>
-                        <li>17h30 19h00</li>
-                        <li></li>
-                        <li>18h30 22h00</li>
-                    </ul>
-                    <ul>
-                        <li>20h30 22h00</li>
-                        <li></li>
-                        <li>19h00 20h30</li>
-                        <li></li>
-                        <li></li>
-                        <li>18h30 22h00</li>
-                    </ul>
-                    <ul>
-                        <li>MMA Pancrace Tous niveaux</li>
-                        <li>Boxe Thaï</li>
-                        <li>Grappling / Luta Livre</li>
-                        <li>Boxe Thaï-Pancrace Enfants de - de 14 ans</li>
-                        <li>Cross-training "Sportiate"</li>
-                        <li>Musculation Cardio-training</li>
-                    </ul>
-                    <ul>
-                        <li>MMA Pancrace Tous niveaux</li>
-                        <li>Boxe Thaï</li>
-                        <li>Grappling / Luta Livre</li>
-                        <li>Boxe Thaï-Pancrace Enfants de - de 14 ans</li>
-                        <li>Cross-training "Sportiate"</li>
-                        <li>Musculation Cardio-training</li>
-                    </ul>
-                    <ul>
-                        <li>MMA Pancrace Tous niveaux</li>
-                        <li>Boxe Thaï</li>
-                        <li>Grappling / Luta Livre</li>
-                        <li>Boxe Thaï-Pancrace Enfants de - de 14 ans</li>
-                        <li>Cross-training "Sportiate"</li>
-                        <li>Musculation Cardio-training</li>
-                    </ul>
-                </div>
-            </div>-->
+            <p class="text">Vitry sur seine</p>
+            <ul id = "header">
+              <li v-for="header in headers">
+                {{header}}
+              </li>
+            </ul>
+            <ul v-for="line in lines">
+              <li v-for="element in line">
+                {{element}}
+              </li>
+            </ul>
         </div>
     </transition>
   </div>
@@ -117,6 +45,22 @@ export default {
         position:0,
         show:true
       },
+      headers:[
+        "Discipline",
+        "Lundi",
+        "Mardi",
+        "Mercredi",
+        "Jeudi",
+        "Vendredi",
+        "Samedi",
+        "Dimanche"
+        ],
+      lines:[
+        ["MMA","1","2","3","4","5","6","7"],
+        ["Boxe Thai","1","2","3","4","5","6","7"],
+        ["Grappling","1","2","3","4","5","6","7"],
+        ["Musculation","1","2","3","4","5","6","7"]
+      ]
     }
   },
 
@@ -153,19 +97,19 @@ export default {
       display:flex;
       flex-direction: column;
       align-items:center;
-      height: 33em;
+      height: 40em;
     }
-
-    .grid{
-        display:grid;
-        grid-template-columns: repeat(8 , auto) 10%;
-        grid-template-rows: auto;
-    }
-
     ul{
-        display:grid;
-        grid-template-columns: repeat(8, 1fr);
-        grid-template-rows: auto;
+        display:table;
+        width: 80%;
+        table-layout: fixed;
+
+    }
+    li{
+         display: table-cell;
+         padding: 0.5em;
+         border:5px double floralWhite;
+         width: 50%;
     }
 
 
